@@ -8,7 +8,7 @@ cur.execute('DROP TABLE IF EXISTS Counts')
 cur.execute('''
 CREATE TABLE Counts (email TEXT, count INTEGER)''')
 
-fname = input('Enter file name: ')
+fname = 'mbox.txt'
 if (len(fname) < 1): fname = 'mbox-short.txt'
 fh = open(fname)
 for line in fh:
@@ -24,7 +24,7 @@ for line in fh:
         cur.execute('UPDATE Counts SET count = count + 1 WHERE email = ?',
                     (email,))
     conn.commit()
-
+print('done')
 # https://www.sqlite.org/lang_select.html
 sqlstr = 'SELECT email, count FROM Counts ORDER BY count DESC LIMIT 10'
 
