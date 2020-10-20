@@ -30,7 +30,7 @@ for line in fh:
         cur.execute('UPDATE Counts SET count = count + 1 WHERE org = ?',
                     (org,))
     conn.commit()
-
+print('done')
 # https://www.sqlite.org/lang_select.html
 sqlstr = 'SELECT org, count FROM Counts ORDER BY count DESC LIMIT 10'
 
